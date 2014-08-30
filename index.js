@@ -8,6 +8,8 @@ var boundfile = argv.boundfile;
 var nodes = {};
 var bounds;
 
+var path = '/home/ruben/data/replication-day/';
+
 var geojson = {
 	"type": "FeatureCollection",
 	"features": []
@@ -19,7 +21,8 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 		return;
 	}
 	bounds = JSON.parse(data);
-	var file = new osmium.File(osmfile);
+
+	var file = new osmium.File(path + osmfile);
 	var reader = new osmium.Reader(file);
 	var handler = new osmium.Handler();
 
@@ -53,7 +56,9 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 	});
 	reader.apply(handler);
 
-	var outputFilename = osmfile.split('.')[0] + '.geojson';
+
+
+	var outputFilename = path + boundfile.split('.')[0] + '-' + osmfile.split('.')[0] + '.geojson';
 	fs.writeFile(outputFilename, JSON.stringify(geojson), function(err) {
 		if (err) {
 			console.log(err);
