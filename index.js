@@ -26,37 +26,54 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 	var reader = new osmium.Reader(file);
 	var handler = new osmium.Handler();
 
+	//console.log(bounds.features[0].geometry.coordinates[0]);
 	handler.on('node', function(node) {
+
 		var coord = [node.lon, node.lat];
 		if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[0])) {
+
 			nodes[node.id] = coord;
+			//console.log(coord);
 		}
 	});
 
+
+
 	handler.on('way', function(way) {
-		if (nodes[way.nodes()[i]] !== undefined) {
-			if (typeof way.tags().building !== 'undefined') {
-				var feature = {
-					"type": "Feature",
-					"properties": {},
-					"geometry": {
-						"type": "LineString",
-						"coordinates": []
-					}
-				};
-				for (var i = 0; i < way.nodes().length; i++) {
 
-					feature.geometry.coordinates.push(nodes[way.nodes()[i]]);
+		//console.log(way.nodes());
 
+		if (typeof way.tags().building !== 'undefined') {
+			var feature = {
+				"type": "Feature",
+				"properties": {},
+				"geometry": {
+					"type": "LineString",
+					"coordinates": []
 				}
+			};
+
+			var wayinpolygon = true;
+
+			for (var i = 0; i < way.nodes().length; i++) {
+				if (nodes.hasOwnProperty(way.nodes()[i]) && wayinpolygon) {
+					feature.geometry.coordinates.push(nodes[way.nodes()[i]]);
+				} else {
+					wayinpolygon = false;
+				}
+			}
+			if (wayinpolygon) {
 				geojson.features.push(feature);
 			}
 
+
+
 		}
 	});
+
 	reader.apply(handler);
 
-
+	//console.log(nodes);
 
 	var outputFilename = path + boundfile.split('.')[0] + '-' + osmfile.split('.')[0] + '.geojson';
 	fs.writeFile(outputFilename, JSON.stringify(geojson), function(err) {
