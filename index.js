@@ -9,6 +9,7 @@ var nodes = {};
 var bounds;
 
 var path = '/home/ruben/data/replication-day/';
+//var path = '';
 
 var geojson = {
 	"type": "FeatureCollection",
@@ -26,15 +27,27 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 	var reader = new osmium.Reader(file);
 	var handler = new osmium.Handler();
 
-	//console.log(bounds.features[0].geometry.coordinates[0]);
+	console.log(bounds.features[0].geometry.coordinates.length);
+
 	handler.on('node', function(node) {
 
 		var coord = [node.lon, node.lat];
-		if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[0])) {
 
-			nodes[node.id] = coord;
-			//console.log(coord);
+		if (bounds.features[0].geometry.coordinates.length === 1) {
+			if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[0])) {
+				nodes[node.id] = coord;
+				//console.log(coord);
+			}
+		} else {
+			var bandera = true;
+			for (var i = 0; i < bounds.features[0].geometry.coordinates.length; i++) {
+				if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[i]) && bandera) {
+					nodes[node.id] = coord;
+					bandera = false;
+				}
+			};
 		}
+
 	});
 
 
