@@ -12,7 +12,6 @@ working with : http://planet.osm.org/replication/day/000/000/
 
  We use Qgis for conver SHPFile to Geojson, or is possible to use GDAL
 
-
 # Process The Files
 
 - Process in block:
@@ -40,8 +39,9 @@ max-file=717( 30-Aug-2014)
 
 # Create config file for Projectmill
 
+`python make-config.py`
 
-
+# Create GIF Animation
 
 - Procesamos los archivos .png
 
