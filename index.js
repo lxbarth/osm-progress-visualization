@@ -54,7 +54,9 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 
 	handler.on('way', function(way) {
 
-		//console.log(way.nodes());
+		//console.log(way.timestamp);
+
+		//if (typeof way.tags().building !== 'undefined' && way.timestamp< 1390608000) {
 
 		if (typeof way.tags().building !== 'undefined') {
 			var feature = {
