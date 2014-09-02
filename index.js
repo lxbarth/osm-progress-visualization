@@ -8,8 +8,8 @@ var boundfile = argv.boundfile;
 var nodes = {};
 var bounds;
 
-var path = '/home/ruben/data/replication-day/';
-//var path = '';
+//var path = '/home/ruben/data/replication-day/';
+var path = '';
 
 var geojson = {
 	"type": "FeatureCollection",
@@ -39,9 +39,10 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 				//console.log(coord);
 			}
 		} else {
+
 			var bandera = true;
 			for (var i = 0; i < bounds.features[0].geometry.coordinates.length; i++) {
-				if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[i]) && bandera) {
+				if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[i][0]) && bandera) {
 					nodes[node.id] = coord;
 					bandera = false;
 				}
@@ -53,11 +54,7 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 
 
 	handler.on('way', function(way) {
-
-		//console.log(way.timestamp);
-
 		//if (typeof way.tags().building !== 'undefined' && way.timestamp< 1390608000) {
-
 		if (typeof way.tags().building !== 'undefined') {
 			var feature = {
 				"type": "Feature",
@@ -87,8 +84,6 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 	});
 
 	reader.apply(handler);
-
-	//console.log(nodes);
 
 	var outputFilename = path + boundfile.split('.')[0] + '-' + osmfile.split('.')[0] + '.geojson';
 	fs.writeFile(outputFilename, JSON.stringify(geojson), function(err) {
