@@ -8,12 +8,39 @@ var boundfile = argv.boundfile;
 var nodes = {};
 var bounds;
 
-//var path = '/home/ruben/data/replication-day/';
-var path = '';
+var path = '/home/ruben/data/replication-day/';
+//var path = '';
 
 var geojson = {
 	"type": "FeatureCollection",
 	"features": []
+};
+
+var bbox_ny = {
+	"type": "Feature",
+	"properties": {},
+	"geometry": {
+		"type": "Polygon",
+		"coordinates": [
+			[
+				[-74.267578125,
+					40.49709237269567
+				],
+				[-74.267578125,
+					40.92285206859968
+				],
+				[-73.69216918945312,
+					40.92285206859968
+				],
+				[-73.69216918945312,
+					40.49709237269567
+				],
+				[-74.267578125,
+					40.49709237269567
+				]
+			]
+		]
+	}
 };
 
 fs.readFile(boundfile, 'utf8', function(err, data) {
@@ -30,25 +57,22 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 	console.log(bounds.features[0].geometry.coordinates.length);
 
 	handler.on('node', function(node) {
-
 		var coord = [node.lon, node.lat];
-
 		if (bounds.features[0].geometry.coordinates.length === 1) {
 			if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[0])) {
 				nodes[node.id] = coord;
 				//console.log(coord);
 			}
 		} else {
-
-			var bandera = true;
-			for (var i = 0; i < bounds.features[0].geometry.coordinates.length; i++) {
-				if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[i][0]) && bandera) {
-					nodes[node.id] = coord;
-					bandera = false;
+			if (pointinpolygon(coord, bbox_ny.geometry.coordinates[0])) {
+				for (var i = 0; i < bounds.features[0].geometry.coordinates.length; i++) {
+					if (pointinpolygon(coord, bounds.features[0].geometry.coordinates[i][0])) {
+						nodes[node.id] = coord;
+						break;
+					}
 				}
-			};
+			}
 		}
-
 	});
 
 
