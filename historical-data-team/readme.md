@@ -1,10 +1,151 @@
+# Visualizaciones 
 
-#NYC:
+## NYC
 
-http://lxbarth.com/bbox/#-74.234619,40.495298,-73.330994,40.998849,9,40.9221070893995,-73.97918701171875
-./stitch -o nyc-new.png -- 38.80654039080489 -77.12539672851561 39.00050945751261 -76.90567016601562 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q
+#### Stitch
+
+use http://geojson.io/#map=2/33.3/11.6, and load the file the place 
+# NYC
+`./stitch -o file.png -- 40.48038142908172 -74.27032470703125 40.92700253056922 -73.69766235351562 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q`
+
+#### Geojson
+`{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.27032470703125,
+              40.48038142908172
+            ],
+            [
+              -74.27032470703125,
+              40.92700253056922
+            ],
+            [
+              -73.69766235351562,
+              40.92700253056922
+            ],
+            [
+              -73.69766235351562,
+              40.48038142908172
+            ],
+            [
+              -74.27032470703125,
+              40.48038142908172
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}`
+#### Tilemill
+
+`-74.27032470703125, 40.48038142908172, -73.69766235351562, 40.92700253056922`
+
+## SF
+
+### Gejson
+`{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.51678466796874,
+              37.70012079430599
+            ],
+            [
+              -122.51678466796874,
+              37.83419172060043
+            ],
+            [
+              -122.35336303710938,
+              37.83419172060043
+            ],
+            [
+              -122.35336303710938,
+              37.70012079430599
+            ],
+            [
+              -122.51678466796874,
+              37.70012079430599
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}`
 
 
-#Campo Grande
-http://www.overpass-api.de/api/xapi?map?bbox=-54.811134,-20.615713,-54.463692,-20.350058
-#### Imagen:
+## Ayacucho
+
+`{
+  "type": "FeatureCollection",
+  "features": [ 
+    {
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -74.26088333129883,
+              -13.214879431265516
+            ],
+            [
+              -74.26088333129883,
+              -13.104892579817477
+            ],
+            [
+              -74.16732788085938,
+              -13.104892579817477
+            ],
+            [
+              -74.16732788085938,
+              -13.214879431265516
+            ],
+            [
+              -74.26088333129883,
+              -13.214879431265516
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}`
+
+
+# GIF con 168 freames
+
+# Modificar todos los archivos:
+
+`mogrify -format gif *.png`
+
+# creara el gif
+
+`gifsicle --loop --colors 256 *.gif > nyc.gif`
+
+ # crea la mitad
+
+`gifsicle nyc.gif  --colors 256 --resize-fit-width 800 -O2 > ny-half.gif`
+
+## hacer un deley en el ultimo frame
+
+`gifsicle -b ny-half.gif --delay 600  "#167"`
+
+
+
