@@ -4,12 +4,13 @@ var argv = require('optimist').argv;
 
 var osmfile = argv.osmfile;
 var boundfile = argv.boundfile;
+var path = argv.path;
+//var path = '';
 
 var nodes = {};
 var bounds;
 
-var path = '/home/ruben/data/replication-day/';
-//var path = '';
+
 var geojson = {
 	"type": "FeatureCollection",
 	"features": []
@@ -34,8 +35,6 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 
 	});
 
-
-
 	handler.on('way', function(way) {
 		var feature = {
 			"type": "Feature",
@@ -52,14 +51,12 @@ fs.readFile(boundfile, 'utf8', function(err, data) {
 				feature.geometry.coordinates.push(nodes[way.nodes()[i]]);
 			}
 		}
-
 		if (feature.geometry.coordinates.length > 0) {
 			geojson.features.push(feature);
 		}
 	});
 
 	reader.apply(handler);
-
 	var outputFilename = path + boundfile.split('.')[0] + '-' + osmfile.split('.')[0] + '.geojson';
 	fs.writeFile(outputFilename, JSON.stringify(geojson), function(err) {
 		if (err) {
@@ -78,10 +75,8 @@ function pointinpolygon(point, vs) {
 	for (var i = 0, j = vs.length - 1; i < vs.length; j = i++) {
 		var xi = vs[i][0],
 			yi = vs[i][1];
-
 		var xj = vs[j][0],
 			yj = vs[j][1];
-
 		var intersect = ((yi > y) != (yj > y)) && (x < (xj - xi) * (y - yi) / (yj - yi) + xi);
 		if (intersect) inside = !inside;
 	}
