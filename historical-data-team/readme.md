@@ -137,7 +137,7 @@ use http://geojson.io/#map=2/33.3/11.6, and load the file the place
 
 # creara el gif
 
-`gifsicle --loop --colors 256 *.gif > nyc.gif`
+`gifsicle --loop --unoptimize --delay 10  *.gif > aya.gif`
 
  # crea la mitad
 
@@ -147,5 +147,17 @@ use http://geojson.io/#map=2/33.3/11.6, and load the file the place
 
 `gifsicle -b ny-half.gif --delay 600  "#167"`
 
+# tiempo entre frame y frame
+`gifsicle --loop --delay 20 --colors 256 *.gif > aya.gif`
+# unoptimize
+`gifsicle --loop --unoptimize --delay 10  *.gif > aya.gif`
+
+
+
+
+`ruben@rub21:~/apps/osm-progress-visualization$ ./process-files  748 748  ayac.geojson`
+ruben@rub21:~/projectmill$ python make-config.py 719 748
+
+^Cruben@rub21:~/projectmill$ ./index.js --mill --render -c config.json -t /home/ruben/tilemill
 
 
