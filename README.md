@@ -139,8 +139,10 @@ este  comando no trabaja en sistema de 64bits, trabaja en uns sistema de 32bits.
 `gifsicle dc.gif  --colors 256 --resize-fit-width 800 -O2 > dc-half.gif`
 
 
-- Si en caso de que se quiere extraer otros frames  como gif.
+- Si en caso de que se quiere extraer otros frames  como gif. =  to explode the gif into a gif per frames
 
- `gifsicle --colors=255 --unoptimize --explode dc.gif` to explode the gif into a gif per frames
+`gifsicle --colors=255 --unoptimize --explode dc.gif`
+
+
 
 
