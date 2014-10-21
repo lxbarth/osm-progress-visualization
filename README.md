@@ -59,29 +59,27 @@ http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
 }`
 
 
-`./stitch -o file.png -- 38.80734300597642 -77.12059020996094 38.997040842877695 -76.90841674804688 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q`
+![screenshot from 2014-10-20 20 39 06](https://cloud.githubusercontent.com/assets/1152236/4711417/b463ea54-58ba-11e4-9061-28fe2a17df11.png)
 
 
-`-77.12059020996094, 38.80734300597642, -76.90841674804688, 38.997040842877695`
-
-
-# Process The Files
+# Process files
 
 - Process in block:
 
  `./process-files 705 716 dc.gejson`
 
 Where:
-min-file=500( 25-Jan-2014)
-max-file=717( 30-Aug-2014)
+min-file=705( 18-Aug-2014)
+max-file=716( 30-Aug-2014)
 
 # Tile-stitch
 
-`./stitch -o dc.png -- 38.80654039080489 -77.12539672851561 39.00050945751261 -76.90567016601562 13 http://a.tile.openstreetmap.org/{z}/{x}/{y}.png`
- 
- or:
+use : https://github.com/ericfischer/tile-stitch
 
- `./stitch -o nyc-new.png -- 38.80654039080489 -77.12539672851561 39.00050945751261 -76.90567016601562 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q`
+`./stitch -o file.png -- 38.80734300597642 -77.12059020996094 38.997040842877695 -76.90841674804688 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q`
+
+get > 
+ 
 
 
 
