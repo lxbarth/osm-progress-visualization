@@ -7,18 +7,20 @@ Data: http://planet.osm.org/replication/day/000/000/
 
 `git clone https://github.com/Rub21/osm-progress-visualization.git`
 
+`cd osm-progress-visualization`
+
 `npm install`
 
 
- # Draw Boundary
+# Draw Boundary
 
  http://geojson.io/#map=2/20.1/0.0
 
 ![screenshot from 2014-10-20 17 11 54](https://cloud.githubusercontent.com/assets/1152236/4709206/c0c68120-589d-11e4-85f9-b6def29ce57a.png)
 
-after compy and paste the square from geojson file
-http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
+save file from : DC
 
+http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
 
 # Process The Files
 
