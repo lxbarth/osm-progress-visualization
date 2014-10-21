@@ -79,14 +79,24 @@ use : https://github.com/ericfischer/tile-stitch
 `./stitch -o file.png -- 38.80734300597642 -77.12059020996094 38.997040842877695 -76.90841674804688 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q`
 
 get > https://github.com/Rub21/osm-progress-visualization/blob/master/dc.png
+
  
-# 5.Setting on Tilemill
+# 5. Setting on Tilemill
+
+Install tilemill: https://github.com/mapbox/tilemill, and create a proyect: name = ["dc"](https://cloud.githubusercontent.com/assets/1152236/4711662/657e0ef2-58be-11e4-81ff-b91e6354dd17.png)
+
+`-77.12059020996094, 38.80734300597642, -76.90841674804688, 38.997040842877695`
+
+ ![screenshot from 2014-10-20 21 03 26](https://cloud.githubusercontent.com/assets/1152236/4711650/2303de3a-58be-11e4-9b44-b20b0844a68d.png)
+
+
+# 6. Create a proyect in Tilemill and setting 
 
 `38.80654039080489 -77.12539672851561 39.00050945751261 -76.90567016601562`
 ![screenshot from 2014-09-01 19 49 53](https://cloud.githubusercontent.com/assets/1152236/4112841/2f7bb664-323b-11e4-8b08-b42a58f80194.png)
 
 
-# Create config file for Projectmill
+# 6. Create config file for Projectmill
 
 `python make-config.py`
 
