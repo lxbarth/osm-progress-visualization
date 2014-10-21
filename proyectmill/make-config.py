@@ -23,7 +23,7 @@ for x in range(int(argv[1]), int(argv[2])+1):
                     "Layer": [
                       {                                        
                                   "Datasource": {
-                                  "file": "/home/ruben/Apps/osm_visualization/data/dc-"+str(x)+".geojson"
+                                  "file": "/home/ruben/apps/osm-progress-visualization/dc-"+str(x)+".geojson"
                                 }
                   
                       }

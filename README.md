@@ -81,26 +81,41 @@ use : https://github.com/ericfischer/tile-stitch
 get > https://github.com/Rub21/osm-progress-visualization/blob/master/dc.png
 
  
-# 5. Setting on Tilemill
+# 5. Project on Tilemill
 
 Install tilemill: https://github.com/mapbox/tilemill, and create a proyect: name = ["dc"](https://cloud.githubusercontent.com/assets/1152236/4711662/657e0ef2-58be-11e4-81ff-b91e6354dd17.png)
 
 `-77.12059020996094, 38.80734300597642, -76.90841674804688, 38.997040842877695`
 
- ![screenshot from 2014-10-20 21 03 26](https://cloud.githubusercontent.com/assets/1152236/4711650/2303de3a-58be-11e4-9b44-b20b0844a68d.png)
+
+![screenshot from 2014-10-20 21 03 38](https://cloud.githubusercontent.com/assets/1152236/4711649/2301848c-58be-11e4-9f7e-c7555044368d.png)
 
 
-# 6. Create a proyect in Tilemill and setting 
 
-`38.80654039080489 -77.12539672851561 39.00050945751261 -76.90567016601562`
-![screenshot from 2014-09-01 19 49 53](https://cloud.githubusercontent.com/assets/1152236/4112841/2f7bb664-323b-11e4-8b08-b42a58f80194.png)
+# 6. Projectmill
+
+Clone projectmill : https://github.com/mapbox/Projectmill, and copy [this file](https://github.com/Rub21/osm-progress-visualization/blob/master/proyectmill/make-config.py) in Projectmill directory.
 
 
-# 6. Create config file for Projectmill
+
+ and setting parameters.
+ 
+![screenshot from 2014-10-20 21 20 40](https://cloud.githubusercontent.com/assets/1152236/4711823/59b6b6ac-58c1-11e4-9dbb-cdc37fd509ac.png)
+
+and then in terminal , go to proyectmill directory and run:
 
 `python make-config.py`
 
-# Create GIF Animation
+
+You will get a file in the directory config.json ProjectMill
+
+
+and then run: `./index.js --mill --render -c config.json -t /home/ruben/tilemill`
+
+You will get all .PNG files, in MapBox/export 
+
+
+# 7. Create GIF Animation
 
 - Procesamos los archivos .png
 
@@ -125,4 +140,3 @@ el siguiente comando no trabaja en sistema de 64bits, trabaja en uns sistema de 
 - Si en caso de que se quiere extraer otros frames  como gif.
 
  `gifsicle --colors=255 --unoptimize --explode dc.gif` to explode the gif into a gif per frames
-
