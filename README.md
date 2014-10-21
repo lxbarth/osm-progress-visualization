@@ -106,9 +106,7 @@ line-color:#e1ce18;
 
 Clone projectmill : https://github.com/mapbox/Projectmill, and copy [this file](https://github.com/Rub21/osm-progress-visualization/blob/master/proyectmill/make-config.py) in Projectmill directory.
 
-
-
- and setting parameters.
+and setting parameters.
  
 ![screenshot from 2014-10-20 21 20 40](https://cloud.githubusercontent.com/assets/1152236/4711823/59b6b6ac-58c1-11e4-9dbb-cdc37fd509ac.png)
 
