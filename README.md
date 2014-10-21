@@ -18,9 +18,52 @@ Data: http://planet.osm.org/replication/day/000/000/
 
 ![screenshot from 2014-10-20 17 11 54](https://cloud.githubusercontent.com/assets/1152236/4709206/c0c68120-589d-11e4-85f9-b6def29ce57a.png)
 
-save file from : DC
+save  DC file : https://github.com/Rub21/osm-progress-visualization/blob/master/dc.geojson and then copy the [square](https://cloud.githubusercontent.com/assets/1152236/4711354/5b4f7588-58b9-11e4-9dd5-f69aaae032a1.png)in :
 
 http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
+
+'{
+  "type": "FeatureCollection",
+  "features": [{
+      "type": "Feature",
+      "properties": {},
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -77.12059020996094,
+              38.80734300597642
+            ],
+            [
+              -77.12059020996094,
+              38.997040842877695
+            ],
+            [
+              -76.90841674804688,
+              38.997040842877695
+            ],
+            [
+              -76.90841674804688,
+              38.80734300597642
+            ],
+            [
+              -77.12059020996094,
+              38.80734300597642
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}'
+
+
+'./stitch -o file.png -- 38.80734300597642 -77.12059020996094 38.997040842877695 -76.90841674804688 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q'
+
+
+'-77.12059020996094, 38.80734300597642, -76.90841674804688, 38.997040842877695'
+
 
 # Process The Files
 
