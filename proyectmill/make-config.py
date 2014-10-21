@@ -6,9 +6,7 @@ import json
 if (len(argv) < 3):
     print "ingrese el nuemor del archivo el menor y despues el mayor"
     exit()
-
 config_json=[]
-
 
 for x in range(int(argv[1]), int(argv[2])+1):
     project={
@@ -36,7 +34,5 @@ for x in range(int(argv[1]), int(argv[2])+1):
 
     config_json.append(project)
 
-
 print 'saving geojson'
-
 json.dump(config_json, open('config.json', 'w'))
