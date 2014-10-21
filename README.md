@@ -67,9 +67,8 @@ http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
 
 `./process-files 705 716 dc.gejson`
 
-Where:
-min-file=705( 18-Aug-2014)
-max-file=716( 30-Aug-2014)
+- min-file=705( 18-Aug-2014)
+- max-file=716( 30-Aug-2014)
 
 
 # 4. Tile-stitch
@@ -78,7 +77,7 @@ use : https://github.com/ericfischer/tile-stitch
 
 `./stitch -o file.png -- 38.80734300597642 -77.12059020996094 38.997040842877695 -76.90841674804688 13 http://a.tiles.mapbox.com/v4/openstreetmap.map-inh7ifmo/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoib3BlbnN0cmVldG1hcCIsImEiOiJhNVlHd29ZIn0.ti6wATGDWOmCnCYen-Ip7Q`
 
-get > https://github.com/Rub21/osm-progress-visualization/blob/master/dc.png
+we obtain: https://github.com/Rub21/osm-progress-visualization/blob/master/dc.png
 
  
 # 5. Project on Tilemill
@@ -90,6 +89,17 @@ Install tilemill: https://github.com/mapbox/tilemill, and create a proyect: name
 
 ![screenshot from 2014-10-20 21 03 38](https://cloud.githubusercontent.com/assets/1152236/4711649/2301848c-58be-11e4-9f7e-c7555044368d.png)
 
+change styles in tilemill:
+
+
+![screenshot from 2014-10-20 21 53 38](https://cloud.githubusercontent.com/assets/1152236/4711993/38c3d4ee-58c5-11e4-81dc-092e2877a953.png)
+
+
+`#line{
+line-color:#e1ce18;
+  line-width:0.5;
+  line-comp-op:hard-light;
+}`
 
 
 # 6. Projectmill
