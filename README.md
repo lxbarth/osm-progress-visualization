@@ -117,26 +117,30 @@ You will get all .PNG files, in MapBox/export
 
 # 7. Create GIF Animation
 
+go to : `MapBox/export `, we get 
+
 - Procesamos los archivos .png
 
 `mogrify -format gif *.png`
 
 - Creamos el Gif
 
-`gifsicle --loop=0 --colors=255 *.gif > dc.gif`
+`gifsicle --loop --unoptimize *.gif > dc.gif`
 
 - Ponemos un pause al final de 5 segundos
 
-el siguiente comando no trabaja en sistema de 64bits, trabaja en uns sistema de 32bits.
 
+`gifsicle -b dc.gif --delay 500  "#17"`
 
-`gifsicle dc.gif  -d500 "#-1"`
+este  comando no trabaja en sistema de 64bits, trabaja en uns sistema de 32bits.
 
-- Cambiamos de tamano 
+- reduciamos a la mitad el gif.
 
-`gifsicle dc.gif --colors=255 | gifsicle --unoptimize | gifsicle  --resize-fit-width 500 -O2 > dc-half.gif`
+`gifsicle dc.gif  --colors 256 --resize-fit-width 800 -O2 > dc-half.gif`
 
 
 - Si en caso de que se quiere extraer otros frames  como gif.
 
  `gifsicle --colors=255 --unoptimize --explode dc.gif` to explode the gif into a gif per frames
+
+
