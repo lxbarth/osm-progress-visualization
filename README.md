@@ -1,8 +1,6 @@
 osm-progress-visualization
 ==========================
 
-Data: http://planet.osm.org/replication/day/000/000/
-
 # 1. Install
 
 `git clone https://github.com/Rub21/osm-progress-visualization.git`
