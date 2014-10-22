@@ -1,7 +1,7 @@
 #!/bin/bash
 for i in $(seq $1 $2)
 do	
-	curl -O http://planet.openstreetmap.org/replication/day/000/000/$i.osc.gz
+	#curl -O http://planet.openstreetmap.org/replication/day/000/000/$i.osc.gz
 	path_files=""
  	gzip -d $path_files$i.osc.gz
 	node index.js --osmfile=$i.osc --boundfile=$3 --path=$path_files
