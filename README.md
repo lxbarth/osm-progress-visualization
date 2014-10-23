@@ -63,7 +63,7 @@ http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
 
 - Process in block:
 
-`./process-files 705 716 dc.gejson`
+`./process-files 705 716 dc.geojson`
 
 - min-file=705( 18-Aug-2014)
 - max-file=716( 30-Aug-2014)
@@ -100,6 +100,10 @@ line-color:#e1ce18;
 }`
 
 
+Remove other layer on tilemill
+![screenshot from 2014-10-23 15 15 13](https://cloud.githubusercontent.com/assets/1152236/4759637/fe2012c8-5ae8-11e4-9b83-72fc25c7e5a6.png)
+![screenshot from 2014-10-23 15 15 28](https://cloud.githubusercontent.com/assets/1152236/4759636/fe055a78-5ae8-11e4-9a33-345a64fded63.png)
+
 # 6. Projectmill
 
 Clone projectmill : https://github.com/mapbox/Projectmill, and copy [this file](https://github.com/Rub21/osm-progress-visualization/blob/master/proyectmill/make-config.py) in Projectmill directory.
@@ -110,7 +114,9 @@ and setting parameters.
 
 and then in terminal , go to proyectmill directory and run:
 
-`python make-config.py`
+`cd projectmill`
+
+`python make-config.py 705 716`
 
 
 You will get a file in the directory config.json ProjectMill
@@ -119,6 +125,29 @@ You will get a file in the directory config.json ProjectMill
 and then run: `./index.js --mill --render -c config.json -t /home/ruben/tilemill`
 
 You will get all .PNG files, in MapBox/export 
+
+
+*If you find same images on file:
+
+![screenshot from 2014-10-23 15 19 17](https://cloud.githubusercontent.com/assets/1152236/4759783/44037cfc-5aea-11e4-95bd-80ec3ccf3bc5.png)
+
+*Remove the directory "layers" in dc project*
+
+![screenshot from 2014-10-23 15 24 15](https://cloud.githubusercontent.com/assets/1152236/4759800/659f6920-5aea-11e4-8179-d1421a6852dc.png)
+
+and then remove all project was created by projectmill:
+
+![screenshot from 2014-10-23 15 27 44](https://cloud.githubusercontent.com/assets/1152236/4759840/b7cbc41e-5aea-11e4-8118-448bb6c7cf36.png)
+
+
+
+and run again, 
+
+ `./index.js --mill --render -c config.json -t /home/ruben/tilemill`
+
+
+![screenshot from 2014-10-23 15 20 57](https://cloud.githubusercontent.com/assets/1152236/4759782/43ffbbf8-5aea-11e4-94b2-8bd57e3dac8c.png)
+
 
 
 # 7. Create GIF Animation
