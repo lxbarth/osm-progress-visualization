@@ -145,12 +145,16 @@ and run again,
 
  `./index.js --mill --render -c config.json -t /home/ruben/tilemill`
 
+and then you will get:
 
 ![screenshot from 2014-10-23 15 20 57](https://cloud.githubusercontent.com/assets/1152236/4759782/43ffbbf8-5aea-11e4-94b2-8bd57e3dac8c.png)
 
 
 
 # 7. Create GIF Animation
+
+copy and paste the background file that, we obtained in Tile-stitch, https://github.com/Rub21/osm-progress-visualization/blob/master/dc.png
+ and remame as: `dc704.png`
 
 go to : `MapBox/export `, we get 
 
