@@ -11,7 +11,7 @@ osm-progress-visualization
 
 # 2. Download files from http://planet.osm.org/replication/day/000/000/
 
-`$ ./retrieve-day 819 828`
+`$ ./retrieve-day 705 716`
 
 # 3. Draw Boundary
 
