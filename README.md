@@ -9,8 +9,11 @@ osm-progress-visualization
 
 `npm install`
 
+# 2. Download files from http://planet.osm.org/replication/day/000/000/
 
-# 2. Draw Boundary
+`$ ./retrieve-day 819 828`
+
+# 3. Draw Boundary
 
  http://geojson.io/#map=2/20.1/0.0
 
@@ -59,7 +62,7 @@ http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
 
 ![screenshot from 2014-10-20 20 39 06](https://cloud.githubusercontent.com/assets/1152236/4711417/b463ea54-58ba-11e4-9061-28fe2a17df11.png)
 
-# 3. Process files
+# 4. Process files
 
 - Process in block:
 
@@ -69,7 +72,7 @@ http://bl.ocks.org/Rub21/raw/8f918ce7e6d84dc3db80/
 - max-file=716( 30-Aug-2014)
 
 
-# 4. Tile-stitch
+# 5. Tile-stitch
 
 use : https://github.com/ericfischer/tile-stitch
 
@@ -78,7 +81,7 @@ use : https://github.com/ericfischer/tile-stitch
 we obtain: https://github.com/Rub21/osm-progress-visualization/blob/master/dc.png
 
  
-# 5. Project on Tilemill
+# 6. Project on Tilemill
 
 Install tilemill: https://github.com/mapbox/tilemill, and create a proyect: name = ["dc"](https://cloud.githubusercontent.com/assets/1152236/4711662/657e0ef2-58be-11e4-81ff-b91e6354dd17.png)
 
@@ -104,7 +107,7 @@ Remove other layer on tilemill
 ![screenshot from 2014-10-23 15 15 13](https://cloud.githubusercontent.com/assets/1152236/4759637/fe2012c8-5ae8-11e4-9b83-72fc25c7e5a6.png)
 ![screenshot from 2014-10-23 15 15 28](https://cloud.githubusercontent.com/assets/1152236/4759636/fe055a78-5ae8-11e4-9a33-345a64fded63.png)
 
-# 6. Projectmill
+# 7. Projectmill
 
 Clone projectmill : https://github.com/mapbox/Projectmill, and copy [this file](https://github.com/Rub21/osm-progress-visualization/blob/master/proyectmill/make-config.py) in Projectmill directory.
 
@@ -151,7 +154,7 @@ and then you will get:
 
 
 
-# 7. Create GIF Animation
+# 8. Create GIF Animation
 
 copy and paste the background file that, we obtained in Tile-stitch, https://github.com/Rub21/osm-progress-visualization/blob/master/dc.png
  and remame as: `dc704.png`
